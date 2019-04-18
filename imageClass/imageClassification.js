@@ -1,12 +1,18 @@
 // jshint esversion:6
 
 let mobilenet;
-let puffin;
+let animal = document.getElementById("imageToClass");
 
+$(".flex-image").on("click",function(){
+  document.getElementById("imageToClass").src = this.src ;
+  modelReady();
+});
+
+mobilenet = ml5.imageClassifier("MobileNet", modelReady);
 
 function modelReady(){
   console.log("model is ready");
-  mobilenet.predict(puffin, gotResults);
+  mobilenet.predict(animal, gotResults);
 
 }
 
@@ -17,23 +23,8 @@ function gotResults(err, results){
     console.log(results);
     let label = results[0].className;
     let probability = results[0].probability;
-    fill (0);
-    textSize(25);
-    text(label, 10, height -75);
-    createP(label).parent('label');
-    createP(probability).parent('probability');
+    $("#probabilityData").html( probability );
+    $("#labelData").html( label );
   }
 
-}
-
-function imageReady(){
-  image(puffin, 0, 0, width, height);
-}
-
-function setup(){
-  createCanvas(640, 480);
-  background(0);
-  puffin = createImg("imageClass/images/puffin.jpeg", imageReady);
-  puffin.hide();
-  mobilenet = ml5.imageClassifier("MobileNet", modelReady);
 }

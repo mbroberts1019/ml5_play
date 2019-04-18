@@ -1,6 +1,9 @@
 .flex-container {
   display: flex;
   background-color: DodgerBlue;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
 
 }
 
@@ -13,7 +16,50 @@
   width: 100px;
 }
 
+.flex-container2 {
+  display: flex;
+  background-color: purple;
+  margin-left: 20%;
+  margin-right: 20%;
+
+}
+
+.flex-container2 > div {
+  background-color: #f1f1f1;
+  margin: auto;
+  padding: 10px;
+  font-size: 30px;
+  height: 300px;
+  width: 50%;
+}
+
+.left{
+  float:left;
+  width: 50%;
+}
+
+.right{
+  float:right;
+  width: 50%
+}
+
+
+.selected-image {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 50%;
+ height: 300px;
+}
+
 .flex-image{
   height: inherit;
   width: inherit;
+}
+
+.header{
+  text-align: center;
+  background-color: #00bdaa;
+  margin:10px auto;
+  padding: 20px auto;
 }
